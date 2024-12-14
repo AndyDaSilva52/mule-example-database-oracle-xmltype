@@ -13,8 +13,8 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<scheduler doc:name="Scheduler">
 			<scheduling-strategy>
 				<fixed-frequency
-					frequency="30000"
-					startDelay="3000" />
+					frequency="10000"
+					startDelay="5000" />
 			</scheduling-strategy>
 		</scheduler>
 		<set-variable value='#["username" ++ ((now() as Number {unit:"seconds"}) as String)]' doc:name="username" doc:id="855a01c0-bb8a-4a5d-bdfe-afe484a8c62b" variableName="username"/>

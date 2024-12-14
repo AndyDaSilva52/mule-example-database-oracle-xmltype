@@ -8,6 +8,7 @@ AS
     l_social_name  VARCHAR2(50);
     l_gender       VARCHAR2(50);
     l_birth_date   DATE;
+    l_person_id    NUMBER;
 BEGIN
     -- Extract values from the XML input
     SELECT
@@ -28,8 +29,11 @@ BEGIN
         l_username, l_name, l_social_name, l_gender, l_birth_date
     );
 
+    -- Select the person_id
+    SELECT person_id INTO l_person_id FROM PEOPLE WHERE username = l_username;
+
     -- Set the output XML response
-    p_response_xml := XMLTYPE('<response><status>Success</status><message>Person created successfully</message></response>');
+    p_response_xml := XMLTYPE('<response><status>Success</status><message>Person created successfully</message><person_id>' || l_person_id || '</person_id></response>');
 
 EXCEPTION
     WHEN OTHERS THEN

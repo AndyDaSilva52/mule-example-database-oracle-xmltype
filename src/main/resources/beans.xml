@@ -1,0 +1,73 @@
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/jdbc
+		http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+		
+
+	<bean id="OracleDataSource"
+		name="OracleDataSource"
+		class="oracle.jdbc.pool.OracleDataSource">
+
+		<property name="URL" value="${dbOracle.url}"/>
+
+		<property name="user" value="${dbOracle.user}"/>
+		<property name="password" value="${dbOracle.password}"/>
+
+		<property name="implicitCachingEnabled" value="true"/>
+
+<!-- 		<property name="maxIdleTime" value="${dbOracle.poolingProfile.maxIdleTimeSeconds}"/> -->
+
+<!-- 		<property name="connectionCachingEnabled" value="true"/> -->
+<!-- 		<property name="connectionCacheProperties"> -->
+<!-- 			<props merge="default"> -->
+<!-- 				<prop key="MinLimit">${dbOracle.poolingProfile.minLimit}</prop> -->
+<!-- 				<prop key="MaxLimit">${dbOracle.poolingProfile.maxLimit}</prop> -->
+<!-- 				<prop key="InitialLimit">10</prop> -->
+<!-- 				<prop key="ConnectionWaitTimeout">${dbOracle.poolingProfile.connectionWaitTimeout}</prop> -->
+<!-- 				<prop key="InactivityTimeout">${dbOracle.poolingProfile.inactivityTimeout}</prop> -->
+<!-- 				<prop key="ValidateConnection">true</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+	</bean>
+
+
+
+		<!-- Reference Oracle UCP (Universal Connection Pool) -->
+		<!-- https://docs.oracle.com/cd/E11882_01/java.112/e12265/toc.htm -->
+		<!-- https://www.baeldung.com/spring-oracle-connection-pooling -->
+		<!-- https://docs.oracle.com/en/database/oracle/oracle-database/12.2/jajdb/oracle/jdbc/pool/OracleDataSource.html -->
+		<!-- https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby -->
+		<!-- https://stackoverflow.com/a/1435634/2057854 -->
+<!-- 	<bean id="OracleDataSource" -->
+<!-- 		name="OracleDataSource" -->
+<!-- 		class="oracle.ucp.jdbc.PoolDataSourceFactory" -->
+<!-- 		factory-method="getPoolDataSource"> -->
+
+<!-- 		<property name="URL" value="${dbOracle.url}"/> -->
+
+<!-- 		<property name="user" value="${secure::dbOracle.user}"/> -->
+<!-- 		<property name="password" value="${secure::dbOracle.password}"/> -->
+
+<!-- 		<property name="connectionFactoryClassName" value="oracle.jdbc.pool.OracleDataSource" /> -->
+<!-- 	    <property name="connectionPoolName" value="" /> Example: ANAG_POOL -->
+<!-- 	    <property name="minPoolSize" value="${dbOracle.pool.MinLimit}" /> Example: 5 -->
+<!-- 	    <property name="maxPoolSize" value="${dbOracle.pool.MaxLimit}" /> Example: 10 -->
+<!-- 	    <property name="initialPoolSize" value="5" /> Example: 5 -->
+<!-- 	    <property name="inactiveConnectionTimeout" -->
+<!-- 								value="${dbOracle.pool.InactivityTimeout}" /> Example: 120 -->
+<!-- 	    <property name="validateConnectionOnBorrow" value="true" /> Example: true -->
+<!-- 	    <property name="maxStatements" value="10" /> Example: 10 -->
+<!-- 	</bean> -->
+
+
+</beans>

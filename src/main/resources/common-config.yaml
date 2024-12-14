@@ -1,0 +1,7 @@
+dbOracle:
+  host: "localhost"
+  serviceName: "FREE"
+  port: "1521"
+  user: "C##TEST"
+  password: "TEST"
+  url: "jdbc:oracle:thin:@${dbOracle.host}:${dbOracle.port}/${dbOracle.serviceName}"

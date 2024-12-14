@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="scheduler.stored-procedure-in-out-xmltype">
+		<scheduler doc:name="Scheduler">
+			<scheduling-strategy>
+				<fixed-frequency
+					frequency="30000"
+					startDelay="3000" />
+			</scheduling-strategy>
+		</scheduler>
+		<set-variable value='#["username" ++ ((now() as Number {unit:"seconds"}) as String)]' doc:name="username" doc:id="855a01c0-bb8a-4a5d-bdfe-afe484a8c62b" variableName="username"/>
+		<ee:transform doc:name="payload/json - Mock">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+	username: vars.username,
+	name: "Name Surname",
+	social_name: "Name",
+	gender: "M",
+	birth_date: "2024-12-31"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="payload/text">
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+ns xsi http://www.w3.org/2001/XMLSchema-instance
+ns xsd http://www.w3.org/2001/XMLSchema
+output text/plain
+---
+write(
+	{
+	Root
+        @(('xsi': xsi), ('xsd': xsd)): {
+
+	username: payload.username,
+	name: payload.name,
+	social_name: payload.social_name,
+	gender: payload.gender,
+	birth_date: payload.birth_date
+
+	}
+}, "application/xml", { indent: false})
+
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<db:stored-procedure config-ref="Database_Config_OracleDataSource" >
+			<db:sql ><![CDATA[{
+CALL CREATE_PERSON_FROM_XML( :IN_P_PERSON_XML, :OUT_P_RESPONSE_XML)
+}]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	IN_P_PERSON_XML: payload
+}]]]></db:input-parameters>
+			<db:output-parameters >
+				<db:output-parameter key="OUT_P_RESPONSE_XML" type="SQLXML" />
+			</db:output-parameters>
+		</db:stored-procedure>
+		<logger
+			level="INFO"
+			doc:name="payload"
+			message="#[payload]" />
+		<ee:transform doc:name="response">
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+(read(payload.OUT_P_RESPONSE_XML, 'application/xml'))]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

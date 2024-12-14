@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <mule
+	xmlns:spring="http://www.mulesoft.org/schema/mule/spring"
 	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
 	xmlns:db="http://www.mulesoft.org/schema/mule/db"
 	xmlns="http://www.mulesoft.org/schema/mule/core"
@@ -8,7 +9,37 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/spring http://www.mulesoft.org/schema/mule/spring/current/mule-spring.xsd">
+
+
+	
+	<configuration-properties file="common-config.yaml" />
+
+	<db:config name="Database_Config_Oracle">
+		<db:oracle-connection
+			host="${dbOracle.host}"
+			user="${dbOracle.user}"
+			password="${dbOracle.password}"
+			serviceName="${dbOracle.serviceName}">
+			<db:pooling-profile />
+		</db:oracle-connection>
+	</db:config>
+
+	<spring:config
+		name="Spring_Config"
+		doc:description="beans.xml"
+		files="beans.xml" />
+
+	<db:config
+		name="Database_Config_OracleDataSource"
+		doc:description="DataSource ref: OracleDataSource | beans.xml">
+		<db:data-source-connection dataSourceRef="OracleDataSource" />
+	</db:config>
+
+	
+
+
 	<flow name="scheduler.stored-procedure-in-out-xmltype">
 		<scheduler doc:name="Scheduler">
 			<scheduling-strategy>

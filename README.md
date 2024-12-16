@@ -121,10 +121,13 @@ The solution is to include JVM Arguments during Run/Debug on Anypoint Studio:
 -Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl
 -Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl
 ```
+Why? ... [Troubleshoot Oracle’s XML Extensions using System Properties](https://docs.mulesoft.com/db-connector/latest/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties)
+
 
 ## Links:
 
 - [Using SQL XMLType in Mule 4 | MuleSoft Help Center (help.mulesoft.com)](https://help.mulesoft.com/s/article/Using-SQL-XMLType-in-Mule-4) or [Using SQL XMLType in Mule 4](./exchange-docs/using-sql-xmltype-in-mule-4.md)
 - ["Invalid column type" error when calling Oracle Stored Procedure with XMLTYPE parameter | MuleSoft Help Center (help.mulesoft.com)](https://help.mulesoft.com/s/article/Invalid-column-type-error-when-calling-Oracle-Stored-Procedure-with-XMLTYPE-parameter) or [Invalid column type error when calling Oracle Stored Procedure with XMLTYPE parameter](./exchange-docs/invalid-column-type-error-when-calling-oracle-stored-procedure-with-xmltype-parameter.md)
 - [XMLTYPE cast exception c3p0 pool Oracle Database | MuleSoft Help Center (help.mulesoft.com)](https://help.mulesoft.com/s/article/XMLTYPE-cast-exception-c3p0-pool-Oracle-Database) or [XMLTYPE cast exception c3p0 pool Oracle Database](./exchange-docs/xmltype-cast-exception-c3p0-pool-oracle-database.md)
+
 

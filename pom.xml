@@ -18,19 +18,19 @@
     <build>
         <plugins>
             <!-- MUnit Maven Plugin - BEGIN -->
-			<plugin>
-				<groupId>com.mulesoft.munit.tools</groupId>
-				<artifactId>munit-maven-plugin</artifactId>
-				<configuration>
-					<argLines>
-						<!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
-						<argLine>-Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</argLine>
-						<argLine>-Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</argLine>
-						<!-- END XML Parser v2 - xmlparserv2.jar -->
-					</argLines>
-				</configuration>
-			</plugin>
-			<!-- MUnit Maven Plugin - END -->
+            <plugin>
+                <groupId>com.mulesoft.munit.tools</groupId>
+                <artifactId>munit-maven-plugin</artifactId>
+                <configuration>
+                    <argLines>
+                        <!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
+                        <argLine>-Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</argLine>
+                        <argLine>-Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</argLine>
+                        <!-- END XML Parser v2 - xmlparserv2.jar -->
+                    </argLines>
+                </configuration>
+            </plugin>
+            <!-- MUnit Maven Plugin - END -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -87,33 +87,31 @@
 					</additionalPluginDependencies>
 -->
                     <cloudHubDeployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${mule.version}</muleVersion>
-						<businessGroup>${cloudhub.businessGroup}</businessGroup>
-						<applicationName>${anypoint.applicationName}</applicationName>
-						<environment>${cloudhub.environment}</environment>
-						<region>${cloudhub.region}</region>
-						<workers>${cloudhub.workers}</workers>
-						<workerType>${cloudhub.workerType}</workerType>
-						<businessGroupId>${cloudhub.businessGroupId}</businessGroupId>
-						<properties>
-							<env>${anypoint.mule.environment}</env>
-							<encrypt.key>${cloudhub.encrypt.key}</encrypt.key>
-							<anypoint.platform.client_id>${cloudhub.env.client_id}</anypoint.platform.client_id>
-							<anypoint.platform.client_secret>${cloudhub.env.client_secret}</anypoint.platform.client_secret>
-
-							<!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
-							<javax.xml.parsers.SAXParserFactory>com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</javax.xml.parsers.SAXParserFactory>
-							<javax.xml.parsers.DocumentBuilderFactory>com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</javax.xml.parsers.DocumentBuilderFactory>
-							<!-- END XML Parser v2 - xmlparserv2.jar -->
-
-						</properties>
-						<connectedAppClientId>${anypoint.connectedAppClientId}</connectedAppClientId>
-						<connectedAppClientSecret>${anypoint.connectedAppClientSecret}</connectedAppClientSecret>
-						<connectedAppGrantType>client_credentials</connectedAppGrantType>
-						<objectStoreV2>true</objectStoreV2>
-						<persistentQueues>false</persistentQueues>
-					</cloudHubDeployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <muleVersion>${mule.version}</muleVersion>
+                        <businessGroup>${cloudhub.businessGroup}</businessGroup>
+                        <applicationName>${anypoint.applicationName}</applicationName>
+                        <environment>${cloudhub.environment}</environment>
+                        <region>${cloudhub.region}</region>
+                        <workers>${cloudhub.workers}</workers>
+                        <workerType>${cloudhub.workerType}</workerType>
+                        <businessGroupId>${cloudhub.businessGroupId}</businessGroupId>
+                        <properties>
+                            <env>${anypoint.mule.environment}</env>
+                            <encrypt.key>${cloudhub.encrypt.key}</encrypt.key>
+                            <anypoint.platform.client_id>${cloudhub.env.client_id}</anypoint.platform.client_id>
+                            <anypoint.platform.client_secret>${cloudhub.env.client_secret}</anypoint.platform.client_secret>
+                            <!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
+                            <javax.xml.parsers.SAXParserFactory>com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</javax.xml.parsers.SAXParserFactory>
+                            <javax.xml.parsers.DocumentBuilderFactory>com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</javax.xml.parsers.DocumentBuilderFactory>
+                            <!-- END XML Parser v2 - xmlparserv2.jar -->
+                        </properties>
+                        <connectedAppClientId>${anypoint.connectedAppClientId}</connectedAppClientId>
+                        <connectedAppClientSecret>${anypoint.connectedAppClientSecret}</connectedAppClientSecret>
+                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
+                        <objectStoreV2>true</objectStoreV2>
+                        <persistentQueues>false</persistentQueues>
+                    </cloudHubDeployment>
                     <classifier>mule-application</classifier>
                 </configuration>
             </plugin>

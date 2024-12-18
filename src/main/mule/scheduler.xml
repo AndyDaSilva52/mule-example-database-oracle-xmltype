@@ -13,7 +13,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/spring http://www.mulesoft.org/schema/mule/spring/current/mule-spring.xsd">
 
 
-	
+
 	<configuration-properties file="common-config.yaml" />
 
 	<db:config name="Database_Config_Oracle">
@@ -37,7 +37,7 @@ http://www.mulesoft.org/schema/mule/spring http://www.mulesoft.org/schema/mule/s
 		<db:data-source-connection dataSourceRef="OracleDataSource" />
 	</db:config>
 
-	
+
 
 
 	<flow name="scheduler.stored-procedure-in-out-xmltype">
@@ -108,6 +108,11 @@ CALL CREATE_PERSON_FROM_XML( :IN_P_PERSON_XML, :OUT_P_RESPONSE_XML)
 output application/json
 ---
 (read(payload.OUT_P_RESPONSE_XML, 'application/xml'))]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="payload File=transform/p-json.dwl">
+			<ee:message >
+				<ee:set-payload resource="transform/p-json.dwl" />
 			</ee:message>
 		</ee:transform>
 	</flow>

@@ -1,6 +1,9 @@
 {
-  "minMuleVersion": "4.4.0",
-  "javaSpecificationVersions": [
-    "11"
-  ]
+	"redeploymentEnabled": true,
+	"classLoaderModelLoaderDescriptor": {
+        "attributes": {"exportedResources": ["beans.xml"]},
+        "id": "mule"
+    },
+    "minMuleVersion": "4.4.0",
+    "javaSpecificationVersions": ["1.8"]
 }

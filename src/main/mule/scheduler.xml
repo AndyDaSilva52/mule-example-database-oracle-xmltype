@@ -110,10 +110,10 @@ output application/json
 (read(payload.OUT_P_RESPONSE_XML, 'application/xml'))]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<ee:transform doc:name="payload File=transform/p-json.dwl">
+		<!-- [STUDIO:"payload File=transform/p-json.dwl"]<ee:transform doc:name="payload File=transform/p-json.dwl">
 			<ee:message >
 				<ee:set-payload resource="transform/p-json.dwl" />
 			</ee:message>
-		</ee:transform>
+		</ee:transform> [STUDIO] -->
 	</flow>
 </mule>

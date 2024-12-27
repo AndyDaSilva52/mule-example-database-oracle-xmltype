@@ -1,82 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<!-- -->
-	<groupId>com.mycompany</groupId>
-	<artifactId>mule-example-database-oracle-xmltype</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>mule-application</packaging>
-	<!-- -->
-	<name>mule-example-database-oracle-xmltype</name>
-	<!-- -->
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<app.runtime>4.6.9</app.runtime>
-		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
-	</properties>
-	<build>
-		<plugins>
-			<!-- MUnit Maven Plugin - BEGIN -->
-			<plugin>
-				<groupId>com.mulesoft.munit.tools</groupId>
-				<artifactId>munit-maven-plugin</artifactId>
-				<configuration>
-					<argLines>
-						<!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
-						<argLine>-Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</argLine>
-						<argLine>-Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</argLine>
-						<!-- END XML Parser v2 - xmlparserv2.jar -->
-					</argLines>
-				</configuration>
-			</plugin>
-			<!-- MUnit Maven Plugin - END -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<sharedLibraries>
-						<sharedLibrary>
-							<groupId>com.oracle.database.jdbc</groupId>
-							<artifactId>ojdbc8</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
-							<groupId>com.oracle.database.xml</groupId>
-							<artifactId>xdb</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
-							<groupId>com.oracle.database.xml</groupId>
-							<artifactId>xmlparserv2</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
-							<groupId>org.springframework</groupId>
-							<artifactId>spring-core</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
-							<groupId>org.springframework</groupId>
-							<artifactId>spring-beans</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
-							<groupId>org.springframework.security</groupId>
-							<artifactId>spring-security-core</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
-							<groupId>org.springframework</groupId>
-							<artifactId>spring-context</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
-							<groupId>org.springframework.security</groupId>
-							<artifactId>spring-security-config</artifactId>
-						</sharedLibrary>
-					</sharedLibraries>
-					<!--
+    <modelVersion>4.0.0</modelVersion>
+    <!-- -->
+    <groupId>com.mycompany</groupId>
+    <artifactId>mule-example-database-oracle-xmltype</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>mule-application</packaging>
+    <!-- -->
+    <name>mule-example-database-oracle-xmltype</name>
+    <!-- -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <app.runtime>4.6.9</app.runtime>
+        <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
+    </properties>
+    <build>
+        <plugins>
+            <!-- MUnit Maven Plugin - BEGIN -->
+            <plugin>
+                <groupId>com.mulesoft.munit.tools</groupId>
+                <artifactId>munit-maven-plugin</artifactId>
+                <configuration>
+                    <argLines>
+                        <!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
+                        <argLine>-Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</argLine>
+                        <argLine>-Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</argLine>
+                        <!-- END XML Parser v2 - xmlparserv2.jar -->
+                    </argLines>
+                </configuration>
+            </plugin>
+            <!-- MUnit Maven Plugin - END -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>${mule.maven.plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <sharedLibraries>
+                        <sharedLibrary>
+                            <groupId>com.oracle.database.jdbc</groupId>
+                            <artifactId>ojdbc8</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>com.oracle.database.xml</groupId>
+                            <artifactId>xdb</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>com.oracle.database.xml</groupId>
+                            <artifactId>xmlparserv2</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-core</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-beans</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework.security</groupId>
+                            <artifactId>spring-security-core</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-context</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.springframework.security</groupId>
+                            <artifactId>spring-security-config</artifactId>
+                        </sharedLibrary>
+                    </sharedLibraries>
+                    <!--
 					<additionalPluginDependencies>
 						<plugin>
 							<groupId>com.oracle.database.jdbc</groupId>
@@ -86,134 +86,134 @@
 						</plugin>
 					</additionalPluginDependencies>
 -->
-					<cloudHubDeployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${mule.version}</muleVersion>
-						<businessGroup>${cloudhub.businessGroup}</businessGroup>
-						<applicationName>${anypoint.applicationName}</applicationName>
-						<environment>${cloudhub.environment}</environment>
-						<region>${cloudhub.region}</region>
-						<workers>${cloudhub.workers}</workers>
-						<workerType>${cloudhub.workerType}</workerType>
-						<businessGroupId>${cloudhub.businessGroupId}</businessGroupId>
-						<properties>
-							<env>${anypoint.mule.environment}</env>
-							<encrypt.key>${cloudhub.encrypt.key}</encrypt.key>
-							<anypoint.platform.client_id>${cloudhub.env.client_id}</anypoint.platform.client_id>
-							<anypoint.platform.client_secret>${cloudhub.env.client_secret}</anypoint.platform.client_secret>
-							<!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
-							<javax.xml.parsers.SAXParserFactory>com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</javax.xml.parsers.SAXParserFactory>
-							<javax.xml.parsers.DocumentBuilderFactory>com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</javax.xml.parsers.DocumentBuilderFactory>
-							<!-- END XML Parser v2 - xmlparserv2.jar -->
-						</properties>
-						<connectedAppClientId>${anypoint.connectedAppClientId}</connectedAppClientId>
-						<connectedAppClientSecret>${anypoint.connectedAppClientSecret}</connectedAppClientSecret>
-						<connectedAppGrantType>client_credentials</connectedAppGrantType>
-						<objectStoreV2>true</objectStoreV2>
-						<persistentQueues>false</persistentQueues>
-					</cloudHubDeployment>
-					<classifier>mule-application</classifier>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<dependencies>
-		<!-- -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>5.3.39</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>5.3.39</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>5.3.39</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-crypto</artifactId>
-			<version>5.8.16</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>5.8.16</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>5.8.16</version>
-		</dependency>
-		<!-- -->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>23.6.0.24.10</version>
-			<!-- 			<scope>runtime</scope> -->
-		</dependency>
-		<dependency>
-			<groupId>com.oracle.database.xml</groupId>
-			<artifactId>xdb</artifactId>
-			<version>23.6.0.24.10</version>
-		</dependency>
-		<dependency>
-			<groupId>com.oracle.database.xml</groupId>
-			<artifactId>xmlparserv2</artifactId>
-			<version>23.6.0.24.10</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-spring-module</artifactId>
-			<version>1.4.0</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-apikit-module</artifactId>
-			<version>1.11.2</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-http-connector</artifactId>
-			<version>1.10.3</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-db-connector</artifactId>
-			<version>1.14.13</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-	</dependencies>
-	<repositories>
-		<repository>
-			<id>anypoint-exchange-v3</id>
-			<name>Anypoint Exchange</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<layout>default</layout>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+                    <cloudHubDeployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <muleVersion>${mule.version}</muleVersion>
+                        <businessGroup>${cloudhub.businessGroup}</businessGroup>
+                        <applicationName>${anypoint.applicationName}</applicationName>
+                        <environment>${cloudhub.environment}</environment>
+                        <region>${cloudhub.region}</region>
+                        <workers>${cloudhub.workers}</workers>
+                        <workerType>${cloudhub.workerType}</workerType>
+                        <businessGroupId>${cloudhub.businessGroupId}</businessGroupId>
+                        <properties>
+                            <env>${anypoint.mule.environment}</env>
+                            <encrypt.key>${cloudhub.encrypt.key}</encrypt.key>
+                            <anypoint.platform.client_id>${cloudhub.env.client_id}</anypoint.platform.client_id>
+                            <anypoint.platform.client_secret>${cloudhub.env.client_secret}</anypoint.platform.client_secret>
+                            <!-- BEGIN XML Parser v2 - xmlparserv2.jar - Reference: https://docs.mulesoft.com/db-connector/1.14/database-connector-troubleshooting#troubleshoot-oracles-xml-extensions-using-system-properties -->
+                            <javax.xml.parsers.SAXParserFactory>com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl</javax.xml.parsers.SAXParserFactory>
+                            <javax.xml.parsers.DocumentBuilderFactory>com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl</javax.xml.parsers.DocumentBuilderFactory>
+                            <!-- END XML Parser v2 - xmlparserv2.jar -->
+                        </properties>
+                        <connectedAppClientId>${anypoint.connectedAppClientId}</connectedAppClientId>
+                        <connectedAppClientSecret>${anypoint.connectedAppClientSecret}</connectedAppClientSecret>
+                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
+                        <objectStoreV2>true</objectStoreV2>
+                        <persistentQueues>false</persistentQueues>
+                    </cloudHubDeployment>
+                    <classifier>mule-application</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <!-- -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.3.39</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.3.39</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.39</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>5.8.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.8.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.8.16</version>
+        </dependency>
+        <!-- -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>23.6.0.24.10</version>
+            <!-- 			<scope>runtime</scope> -->
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.xml</groupId>
+            <artifactId>xdb</artifactId>
+            <version>23.6.0.24.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.xml</groupId>
+            <artifactId>xmlparserv2</artifactId>
+            <version>23.6.0.24.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-spring-module</artifactId>
+            <version>1.4.0</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-apikit-module</artifactId>
+            <version>1.11.2</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.10.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-db-connector</artifactId>
+            <version>1.14.13</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>anypoint-exchange-v3</id>
+            <name>Anypoint Exchange</name>
+            <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <layout>default</layout>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
